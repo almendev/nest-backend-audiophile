@@ -12,7 +12,7 @@ This app contains two entities each connected with their own endpoints and datab
 |Category|http://localhost:3000/api/v1/catgories
 |Products|http://localhost:3000/api/v1/products
 
-> Please remember to replace ```localhost:3000``` in production for your domain.
+> Please remember to replace ```localhost:3000``` with your domain in production.
 
 ### Requeriments
 
