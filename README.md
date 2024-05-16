@@ -26,6 +26,7 @@ This app contains two entities each connected with their own endpoints and datab
 2. Rename ```.env.template``` file to ```.env```
 3. Define the values for each variable in the ```.env``` file
 4. In your terminal go to the local repository folder.
-5. Execute the command ```docker compose up -d```
-6. Execute the command ```npm run start:dev```
-7. Done
+5. Execute ```docker compose up -d```
+6. Execute ```npm install```
+7. Execute ```npm run start:dev```
+8. Done
