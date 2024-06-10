@@ -20,9 +20,9 @@ export class CategoryService {
   async create(createCategoryDto: CreateCategoryDto) {
     const { name } = createCategoryDto;
     try {
-      const doesExist = await this.categoryRepository.findOneBy({ name });
+      const categoryInRepo = await this.categoryRepository.findOneBy({ name });
 
-      if (doesExist) {
+      if (categoryInRepo) {
         throw new BadRequestException(
           `Category ${createCategoryDto.name} already exists`,
         );

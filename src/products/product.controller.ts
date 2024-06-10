@@ -30,6 +30,16 @@ export class ProductController {
     return this.productService.findOne(+id);
   }
 
+  @Get('/category/:category')
+  findByCategory(@Param('category') category: string) {
+    return this.productService.findByCategory(category);
+  }
+
+  @Get('/slug/:slug')
+  findOneBySlug(@Param('slug') slug: string) {
+    return this.productService.findOneBySlug(slug);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
     return this.productService.update(+id, updateProductDto);

@@ -62,12 +62,57 @@ export class ProductService {
     return this.productRepository.find();
   }
 
+  async findByCategory(category: string) {
+    try {
+      const categoryInRepo = await this.categoryRepository.findOneBy({
+        name: category,
+      });
+      if (!categoryInRepo) {
+        throw new BadRequestException(`Category ${category} not found`);
+      }
+
+      const products = await this.productRepository.findBy({
+        category: categoryInRepo,
+      });
+
+      if (!products) {
+        throw new BadRequestException(
+          `No products found with category ${category}`,
+        );
+      }
+
+      return products;
+    } catch (error) {
+      if (error instanceof BadRequestException) {
+        throw error;
+      }
+      throw new InternalServerErrorException();
+    }
+  }
+
   async findOne(id: number) {
     try {
       const product = await this.productRepository.findOneBy({ id });
 
       if (!product) {
         throw new BadRequestException(`No product found with id ${id}`);
+      }
+
+      return product;
+    } catch (error) {
+      if (error instanceof BadRequestException) {
+        throw error;
+      }
+      throw new InternalServerErrorException();
+    }
+  }
+
+  async findOneBySlug(slug: string) {
+    try {
+      const product = await this.productRepository.findOneBy({ slug });
+
+      if (!product) {
+        throw new BadRequestException(`No product found with slug ${slug}`);
       }
 
       return product;

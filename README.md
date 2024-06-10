@@ -7,10 +7,14 @@ This app contains two entities each connected with their own endpoints and datab
 
 ### Development endpoints
 
-|Entity|Endpoint|
-|------|--------|
-|Category|http://localhost:3000/api/v1/catgories
-|Products|http://localhost:3000/api/v1/products
+|Entity|Endpoint|Methods|
+|------|--------|-------|
+|Category|http://localhost:3000/api/v1/catgories|Post, Get|
+|Category|http://localhost:3000/api/v1/catgories/:id|Patch, Delete|
+|Products|http://localhost:3000/api/v1/products|Post, Get|
+|Products|http://localhost:3000/api/v1/products/:id|Patch, Delete|
+|Products|http://localhost:3000/api/v1/products/category/:category|Get|
+|Products|http://localhost:3000/api/v1/products/slug/:slug|Get|
 
 > Please remember to replace ```localhost:3000``` with your domain in production.
 
